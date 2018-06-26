@@ -22,6 +22,32 @@ struct rater{
     char rat_sex;//裁判性别
     int rat_number[15];//裁判电话号码
 };
+int main()
+{
+    int i;
+    double score[5];
+    double max = -1;
+    double min = 200;
+    double sum = 0.0;
+    double x = 0.0;
+    cin>>score[0]>>score[1]>>score[2]>>score[3]>>score[4];
+    for (i = 0; i< 5; i++)
+    {
+        sum = sum + score[i];
+        if (score[i] > max)
+        {
+            max = score[i];
+        }
+        if (score[i] < min)
+        {
+            min = score[i];
+        }
+    }
+    sum = sum - max - min;
+    x = sum / 3 ;
+    cout << "该选手的最后得分:" << x << endl;
+    return 0;
+}
 
 int main(int argc, const char * argv[]) {
     // insert code here...
