@@ -22,7 +22,16 @@ struct rater{
     char rat_sex;//裁判性别
     int rat_number[15];//裁判电话号码
 };
+using namespace std;
+
+
 int main()
+
+using namespace std;
+
+
+int main()
+
 {
     int i;
     double score[5];
@@ -46,11 +55,67 @@ int main()
     sum = sum - max - min;
     x = sum / 3 ;
     cout << "该选手的最后得分:" << x << endl;
+    // 写文件
+    ofstream outFile;
+    outFile.open("data.csv", ios::out); // 打开模式可省略
+    outFile << "name" << ',' << "age" << ',' << "hobby" << endl;
+    outFile << "Mike" << ',' << 18 << ',' << "paiting" << endl;
+    outFile << "Tom" << ',' << 25 << ',' << "football" << endl;
+    outFile << "Jack" << ',' << 21 << ',' << "music" << endl;
+    outFile.close();
+    
+    // 读文件
+    ifstream inFile("data.csv", ios::in);
+    string lineStr;
+    vector<vector<string>> strArray;
+    while (getline(inFile, lineStr))
+    {
+        // 打印整行字符串
+        cout << lineStr << endl;
+        // 存成二维表结构
+        stringstream ss(lineStr);
+        string str;
+        vector<string> lineArray;
+        // 按照逗号分隔
+        while (getline(ss, str, ','))
+            lineArray.push_back(str);
+        strArray.push_back(lineArray);
+    }
+    
+    getchar();
     return 0;
 }
 
-int main(int argc, const char * argv[]) {
-    // insert code here...
-    std::cout << "Hello, World!\n";
-    return 0;
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
